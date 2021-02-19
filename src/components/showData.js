@@ -17,7 +17,13 @@ class showData extends Component {
       <div className={classes.allData}>
 
         <p>{this.props.state.city},{this.props.state.country}</p>
-        <div>{this.props.state.tempature}<br/>{this.props.state.weather}</div>
+
+        <div>
+          <span className={classes.temp}>{this.props.state.tempature}</span>
+          {this.props.state.tempType}
+          <br/>{this.props.state.weather}
+        </div>
+
         <br/>
         {/* <div>High Temp: {this.props.state.maxTemp-273.15}</div>
         <div>High Temp: {this.props.state.minTemp-273.15}</div> */}

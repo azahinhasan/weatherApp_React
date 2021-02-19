@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import classes from './getInput.css';
 class showData extends Component {
 
   state={
@@ -14,13 +15,14 @@ class showData extends Component {
   render() {
     return (
       <div >
-        <input type="text"></input>
-        <input type="text"></input>
+        <input type="text" onChange={this.props.setCity} className={classes.textBox}></input>
+        <input type="text" onChange={this.props.setCountry} className={classes.textBox}></input>
         <br></br>
-        <button>Click</button>
+        <button onClick={this.props.loadInfo} className={classes.search}>Click</button>
         <br/>
-        <button onClick={this.props.convertTOc}>C</button>
-        <button onClick={this.props.convertTOf}>F</button>
+        <button onClick={this.props.convertTOc} className={classes.button}>C</button>
+        <span className={classes.divider}></span>
+        <button onClick={this.props.convertTOf} className={classes.button}>F</button>
       </div>
       
     );

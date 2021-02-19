@@ -14,53 +14,85 @@ class App extends Component {
     sunSet:0,
     humidity:0,
     weather:'',
-    city:'',
-    country: '',
-    tempType:'f'
+    city:'dhaka',
+    country: 'bangladesh',
+    tempType:'°C'
   };
 
 
-  componentDidMount(){
-    axios.get('http://api.openweathermap.org/data/2.5/weather?q=Dhaka,bd&appid=8eef13a1a5202c6c49a16bd128b1220c')  
+componentDidMount(){
 
-            .then(response =>{
-             console.log(response);
-              this.setState({
-                temp: response.data.main.temp,
-                tempature: String(response.data.main.temp-273.15)+ " °C",
-                sunRise : response.data.sys.sunrise,
-                sunSet: response.data.sys.sunset,
-                maxTemp: response.data.main.temp_max,
-                minTemp: response.data.main.temp_min,
-                weather: response.data.weather[0].main,
-                city: response.data.name,
-                country: response.data.sys.country
-              
-              });
-
-            })
-            .catch(error => {
-                console.log(error);  //for hendeling error or failed 
-                this.setState({error: true});
-            });
-
-            console.log(this.state.tempature)
-            this.convertTOc();
+  this.getInfo();
 }
 
+
+getInfo=()=>{
+  axios.get('http://api.openweathermap.org/data/2.5/weather?q='+this.state.city+','+this.state.country+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
+
+  .then(response =>{
+   console.log(response);
+    this.setState({
+      temp: response.data.main.temp,
+      tempature: String((response.data.main.temp-273.15).toFixed(0)),
+      sunRise : response.data.sys.sunrise,
+      sunSet: response.data.sys.sunset,
+      maxTemp: response.data.main.temp_max,
+      minTemp: response.data.main.temp_min,
+      weather: response.data.weather[0].main,
+      city: response.data.name,
+      country: response.data.sys.country
+    
+    });
+
+  })
+  .catch(error => {
+      console.log(error);  //for hendeling error or failed 
+      this.setState({error: true});
+  });
+
+
+  console.log(this.state.tempature)
+
+
+
+  axios.get('https://api.openweathermap.org/data/2.5/forecast?q=mumbai&appid=8eef13a1a5202c6c49a16bd128b1220c')  
+.then(response =>{
+    console.log("History");
+   console.log(response);
+
+  })
+  .catch(error => {
+      console.log(error);  //for hendeling error or failed 
+      this.setState({error: true});
+  });
+
+
+
+
+
+  this.convertTOc();
+}
 convertTOc=()=>{
 
-  if(this.state.tempType!='c'){
-    this.setState({tempature : String((this.state.temp-273.15)+" °C") , tempType:'c'})
+  if(this.state.tempType!='°C'){
+    this.setState({tempature : String((this.state.temp-273.15).toFixed(0)) , tempType:'°C'})
   }
 
 }
 
 convertTOf=()=>{
-  if(this.state.tempType!='f'){
-    this.setState({tempature : String(((this.state.temp-273.15)*9/5+32)+" °F")  , tempType:'f'})
+  if(this.state.tempType!='°F'){
+    this.setState({tempature : String(((this.state.temp-273.15)*9/5+32).toFixed(0))  , tempType:'°F'})
   }
   
+}
+
+setCity=(event)=>{
+  this.setState({city: event.target.value});
+}
+
+setCountry=(event)=>{
+  this.setState({country: event.target.value});
 }
 
   render() {
@@ -71,6 +103,9 @@ convertTOf=()=>{
           <GetInput
             convertTOc={this.convertTOc}
             convertTOf={this.convertTOf}
+            setCountry={this.setCountry}
+            setCity={this.setCity}
+            loadInfo={this.getInfo}
           />
           <ShowData
             state={this.state}
