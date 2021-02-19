@@ -9,7 +9,11 @@ class App extends Component {
     maxTemp:0,
     minTemp:0,
     sunRise:0 ,
-    sunSet:0
+    sunSet:0,
+    humidity:0,
+    weather:'',
+    city:'',
+    country: ''
   };
 
 
@@ -21,7 +25,12 @@ class App extends Component {
               this.setState({
                 tempature: response.data.main.temp,
                 sunRise : response.data.sys.sunrise,
-                sunSet: response.data.sys.sunset
+                sunSet: response.data.sys.sunset,
+                maxTemp: response.data.main.temp_max,
+                minTemp: response.data.main.temp_min,
+                weather: response.data.weather[0].main,
+                city: response.data.name,
+                country: response.data.sys.country
               
               });
 
