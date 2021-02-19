@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ShowData from './components/showData';
 import GetInput from './components/getInput';
+import classes from './App.css';
 class App extends Component {
 
   state={
-    tempature:0,
+    temp:0,
+    tempature:'',
     maxTemp:0,
     minTemp:0,
     sunRise:0 ,
@@ -13,7 +15,8 @@ class App extends Component {
     humidity:0,
     weather:'',
     city:'',
-    country: ''
+    country: '',
+    tempType:'f'
   };
 
 
@@ -23,7 +26,8 @@ class App extends Component {
             .then(response =>{
              console.log(response);
               this.setState({
-                tempature: response.data.main.temp,
+                temp: response.data.main.temp,
+                tempature: String(response.data.main.temp-273.15)+ " °C",
                 sunRise : response.data.sys.sunrise,
                 sunSet: response.data.sys.sunset,
                 maxTemp: response.data.main.temp_max,
@@ -41,18 +45,38 @@ class App extends Component {
             });
 
             console.log(this.state.tempature)
+            this.convertTOc();
 }
 
+convertTOc=()=>{
 
+  if(this.state.tempType!='c'){
+    this.setState({tempature : String((this.state.temp-273.15)+" °C") , tempType:'c'})
+  }
+
+}
+
+convertTOf=()=>{
+  if(this.state.tempType!='f'){
+    this.setState({tempature : String(((this.state.temp-273.15)*9/5+32)+" °F")  , tempType:'f'})
+  }
+  
+}
 
   render() {
     return (
-      <div >
+      <div className={classes.App}>
 
-        <GetInput/>
-        <ShowData
-        state={this.state}
-        />
+        <div className={classes.Datas}>
+          <GetInput
+            convertTOc={this.convertTOc}
+            convertTOf={this.convertTOf}
+          />
+          <ShowData
+            state={this.state}
+          />
+        </div>
+
 
 
       </div>
