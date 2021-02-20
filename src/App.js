@@ -16,7 +16,8 @@ class App extends Component {
     weather:'',
     city:'dhaka',
     country: 'bangladesh',
-    tempType:'°C'
+    tempType:'°C',
+    fiveDaysTemp:[]
   };
 
 
@@ -55,10 +56,19 @@ getInfo=()=>{
 
 
 
-  axios.get('https://api.openweathermap.org/data/2.5/forecast?q=mumbai&appid=8eef13a1a5202c6c49a16bd128b1220c')  
+  axios.get('https://api.openweathermap.org/data/2.5/forecast?q=dhaka,bd&appid=8eef13a1a5202c6c49a16bd128b1220c')  
 .then(response =>{
-    console.log("History");
-   console.log(response);
+
+  //console.log(response);
+
+  const tempFive = response.data.list.slice(3,8);
+
+  // console.log(tempFive);
+  
+
+  this.setState({fiveDaysTemp : tempFive});
+
+  // console.log(this.state.fiveDaysTemp.dt_text);
 
   })
   .catch(error => {
@@ -69,9 +79,11 @@ getInfo=()=>{
 
 
 
-
+  console.log("Historyrrr");
+  //console.log(this.state.fiveDaysTemp.dt_txt);
   this.convertTOc();
 }
+
 convertTOc=()=>{
 
   if(this.state.tempType!='°C'){
@@ -111,6 +123,14 @@ setCountry=(event)=>{
             state={this.state}
           />
         </div>
+
+
+        {/* {this.state.fiveDaysTemp.map(p=>{
+            console.log(p);
+            console.log(p.dt_txt);
+            console.log(p.main.temp);
+
+        })} */}
 
 
 
