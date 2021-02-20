@@ -42,6 +42,11 @@ class showData extends Component {
         <span>SunSet : {new Date(this.props.state.sunSet*1000).toLocaleTimeString()}</span>
         <div>
 
+        
+
+        <table>
+          <tr>
+        
         {
         this.props.state.fiveDaysTemp.map(p=>{
 
@@ -87,15 +92,25 @@ class showData extends Component {
             // console.log(p);
             // console.log(p.dt_txt);
             // console.log(p.main.temp);
-            <div>
-              <span>{p.dt_txt} |||<br/> {p.main.temp} <nobr/></span>
-            </div>
+
+            // <div>
+            //   <span>{p.dt_txt} |||<br/> {p.main.temp} <nobr/></span>
+            // </div>
+            <th>
+              <tr>
+                {p.main.temp}
+              </tr>
+              <tr>
+                {p.dt_txt}
+              </tr>
+            </th>
 
             
           )
 
         })}
-
+</tr>
+</table>
         </div>
       </div>
       
