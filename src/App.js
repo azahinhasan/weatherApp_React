@@ -14,22 +14,26 @@ class App extends Component {
     sunSet:0,
     humidity:0,
     weather:'',
-    city:'dhaka',
-    country: 'bangladesh',
+    city:'Chittagong',
+    country: 'Bangladesh',
+    cityFORSearch:'chittagong',
+    countryFORSearch: 'bangladesh',
     tempType:'°C',
     fiveDaysTemp:[],
-    fiveHoursTemp:[]
+    fiveHoursTemp:[],
+    trackLocation:false
   };
 
 
 componentDidMount(){
 
   this.getInfo();
+  this.getGeoInfo();
 }
 
 
 getInfo=()=>{
-  axios.get('http://api.openweathermap.org/data/2.5/weather?q='+this.state.city+','+this.state.country+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
+  axios.get('http://api.openweathermap.org/data/2.5/weather?q='+this.state.cityFORSearch+','+this.state.cityFORSearch+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
 
   .then(response =>{
    console.log(response);
@@ -57,7 +61,7 @@ getInfo=()=>{
 
 
 
-  axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+this.state.city+','+this.state.country+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
+  axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+this.state.cityFORSearch+','+this.state.cityFORSearch+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
 .then(response =>{
 
   console.log(response);
@@ -101,60 +105,33 @@ convertTOf=()=>{
 }
 
 setCity=(event)=>{
-  this.setState({city: event.target.value});
+  this.setState({cityFORSearch: event.target.value});
 }
 
 setCountry=(event)=>{
-  this.setState({country: event.target.value});
+  this.setState({cityFORSearch: event.target.value});
 }
-
-
-
 
 
 
 
 getGeoInfo = () => {
   axios.get('https://extreme-ip-lookup.com/json/').then((response) => {
-      let data = response.data;
-      console.log(response);
+      //console.log(response);
+ if(this.state.trackLocation == true){
+      this.setState({cityFORSearch : response.data.city , cityFORSearch:response.data.country ,trackLocation : false})
+      this.getInfo();
+ }
   }).catch((error) => {
       console.log(error);
   });
 
-  // const options = {
-  //   method: 'GET',
-  //   url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities',
-  //   headers: {
-  //     'x-rapidapi-key': '44a86bfcf8msha0b4c82ec82bf4fp1a402ajsn65f347574b31',
-  //     'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com'
-  //   }
-  // };
-  
-  // axios.request(options).then(function (response) {
-  //   console.log(response.data);
-  // }).catch(function (error) {
-  //   console.error(error);
-  // });
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+trackLocation=()=>{
+  this.setState({trackLocation : true});
+  this.getGeoInfo();
+}
 
 
   render() {
@@ -169,6 +146,7 @@ getGeoInfo = () => {
             setCountry={this.setCountry}
             setCity={this.setCity}
             loadInfo={this.getInfo}
+            getGeoInfo={this.trackLocation}
           />
           <ShowData
             state={this.state}
@@ -181,9 +159,6 @@ getGeoInfo = () => {
             console.log(p.main.temp);
 
         })} */}
-
-
-        <button onClick={this.getGeoInfo}>fff</button>
 
       </div>
       

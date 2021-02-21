@@ -56,6 +56,7 @@ class showData extends Component {
         
         <HeaderText header="15 Hours Tempature"/>
         <table>
+          <tbody>
           <tr>
         
         {
@@ -80,6 +81,7 @@ class showData extends Component {
 
         })}
 </tr>
+</tbody>
 </table>
         </div>
       </div>
