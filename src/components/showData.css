@@ -2,7 +2,7 @@
     /* text-align: center;
     display: block;
     border: solid 2px black; */
-
+    text-align: center;
 }
 
 
@@ -13,3 +13,39 @@
   .temp{
       font-size: 40px;
   }
+
+  .Line{
+
+      display: block;
+      border: rgb(138, 158, 152) 2px solid;
+      margin: 5px;
+      width: 93%;
+      
+  }
+
+  .Line2{
+
+    display: block;
+    border: rgb(186, 199, 198) 2px solid;
+    margin: 8px;
+    width: 70%;
+    
+}
+
+.headerName{
+    display: block;
+    border: rgb(230, 230, 230) 2px solid;
+    margin: 35px 15px;
+    box-shadow: 2px 2px rgb(185, 180, 180);
+    height: 40px;
+    
+}
+
+.heraderText{
+
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+}

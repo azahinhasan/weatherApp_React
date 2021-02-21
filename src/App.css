@@ -10,18 +10,19 @@
 .Datas{
 
   display: block;
-  border: solid 2px brown;
-  margin: 0px 10px;
-  width: 1050px;
-  top: 200px;
+  border: solid 2px rgb(146, 145, 145);
+  margin: 40px 10px;
+  width: 550px;
+  top: 0;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  background-color: brown;
-  color: aliceblue;
+  background-color: rgb(230, 230, 230);
+  color: black;
   font-weight: bold;
   text-shadow: cadetblue;
   box-shadow: 2px 2px rgb(85, 44, 44);
   border-radius: 10px;
+
 
 }
