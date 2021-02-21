@@ -37,7 +37,7 @@
     border: rgb(230, 230, 230) 2px solid;
     margin: 35px 15px;
     box-shadow: 2px 2px rgb(185, 180, 180);
-    height: 40px;
+    height: 40px ;
     
 }
 
@@ -48,4 +48,32 @@
 table{
     margin-left: auto;
     margin-right: auto;
+    border-spacing: 12px;
+}
+
+th{
+    border: solid 2px black;
+    border-spacing: 12px;
+}
+
+.timeTr{
+    display: block;
+    border-top: 2px solid black;
+    width: 80%;
+    text-align: center;
+    margin: 0px 0px 5px;
+}
+
+.sunSet{
+    height: 60px;
+    width: 60px;
+    
+    margin: -15px 10px -20px;
+}
+
+.sunRise{
+    height: 50px;
+    width: 50px;
+    
+    margin: -15px 10px;
 }

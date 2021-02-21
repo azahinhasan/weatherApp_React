@@ -108,10 +108,60 @@ setCountry=(event)=>{
   this.setState({country: event.target.value});
 }
 
+
+
+
+
+
+
+getGeoInfo = () => {
+  axios.get('https://extreme-ip-lookup.com/json/').then((response) => {
+      let data = response.data;
+      console.log(response);
+  }).catch((error) => {
+      console.log(error);
+  });
+
+  // const options = {
+  //   method: 'GET',
+  //   url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities',
+  //   headers: {
+  //     'x-rapidapi-key': '44a86bfcf8msha0b4c82ec82bf4fp1a402ajsn65f347574b31',
+  //     'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com'
+  //   }
+  // };
+  
+  // axios.request(options).then(function (response) {
+  //   console.log(response.data);
+  // }).catch(function (error) {
+  //   console.error(error);
+  // });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   render() {
     return (
       <div className={classes.App}>
 
+       
         <div className={classes.Datas}>
           <GetInput
             convertTOc={this.convertTOc}
@@ -124,8 +174,7 @@ setCountry=(event)=>{
             state={this.state}
           />
         </div>
-
-
+        <br/>
         {/* {this.state.fiveDaysTemp.map(p=>{
             console.log(p);
             console.log(p.dt_txt);
@@ -134,6 +183,7 @@ setCountry=(event)=>{
         })} */}
 
 
+        <button onClick={this.getGeoInfo}>fff</button>
 
       </div>
       

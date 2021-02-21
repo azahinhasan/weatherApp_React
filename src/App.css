@@ -1,8 +1,7 @@
 .App{
   text-align: center;
-  background-color: rgb(126, 112, 92);
+  background-color: white;
   display: block;
-  border: 2px solid black;
   height:1000px;
   font-size: 20px;
 }
@@ -10,7 +9,7 @@
 .Datas{
 
   display: block;
-  border: solid 2px rgb(146, 145, 145);
+  border: solid 2px rgb(230, 230, 230);
   margin: 40px 10px;
   width: 550px;
   top: 0;
@@ -21,7 +20,7 @@
   color: black;
   font-weight: bold;
   text-shadow: cadetblue;
-  box-shadow: 2px 2px rgb(85, 44, 44);
+  box-shadow: 2px 2px rgb(179, 178, 178);
   border-radius: 10px;
 
 
