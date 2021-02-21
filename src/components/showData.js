@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 import classes from './showData.css';
 import HeaderText from './header';
 
@@ -7,11 +7,11 @@ import sunRise from './sunrises.png';
 
 import sunset from '../icons/sunset.png';
 import sunrise from '../icons/sunrise.png';
-import summer from '../icons/sunset.png';
-import snowing from '../icons/021-snowing-1.png';
-import rain from '../icons/021-rain-2.png';
-import loc from '../icons/loc.png';
-import search from '../icons/search.png';
+// import summer from '../icons/sunset.png';
+// import snowing from '../icons/021-snowing-1.png';
+// import rain from '../icons/021-rain-2.png';
+// import loc from '../icons/loc.png';
+// import search from '../icons/search.png';
 
 
 class showData extends Component {
