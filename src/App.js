@@ -138,7 +138,7 @@ trackLocation=()=>{
     return (
       <div className={classes.App}>
 
-       
+{/*        
         <div className={classes.Datas}>
           <GetInput
             convertTOc={this.convertTOc}
@@ -152,13 +152,15 @@ trackLocation=()=>{
             state={this.state}
           />
         </div>
-        <br/>
+        <br/> */}
         {/* {this.state.fiveDaysTemp.map(p=>{
             console.log(p);
             console.log(p.dt_txt);
             console.log(p.main.temp);
 
         })} */}
+
+        <p>Hello World</p>
 
       </div>
       
