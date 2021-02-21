@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.131dd76d.chunk.css",
+    "main.js": "/static/js/main.4c886909.chunk.js",
+    "main.js.map": "/static/js/main.4c886909.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.a70f5e3c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.a70f5e3c.js.map",
+    "static/js/2.bc0ec2c2.chunk.js": "/static/js/2.bc0ec2c2.chunk.js",
+    "static/js/2.bc0ec2c2.chunk.js.map": "/static/js/2.bc0ec2c2.chunk.js.map",
+    "static/js/3.ae1e2fdb.chunk.js": "/static/js/3.ae1e2fdb.chunk.js",
+    "static/js/3.ae1e2fdb.chunk.js.map": "/static/js/3.ae1e2fdb.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.131dd76d.chunk.css.map": "/static/css/main.131dd76d.chunk.css.map",
+    "static/js/2.bc0ec2c2.chunk.js.LICENSE.txt": "/static/js/2.bc0ec2c2.chunk.js.LICENSE.txt",
+    "static/media/021-rain-2.bdadc815.png": "/static/media/021-rain-2.bdadc815.png",
+    "static/media/021-snowing-1.fae28c79.png": "/static/media/021-snowing-1.fae28c79.png",
+    "static/media/search.c0ff6805.png": "/static/media/search.c0ff6805.png",
+    "static/media/sunrise.0c1beb64.png": "/static/media/sunrise.0c1beb64.png",
+    "static/media/sunrises.b2397004.png": "/static/media/sunrises.b2397004.png",
+    "static/media/sunset.17502fa0.png": "/static/media/sunset.17502fa0.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a70f5e3c.js",
+    "static/js/2.bc0ec2c2.chunk.js",
+    "static/css/main.131dd76d.chunk.css",
+    "static/js/main.4c886909.chunk.js"
+  ]
+}
