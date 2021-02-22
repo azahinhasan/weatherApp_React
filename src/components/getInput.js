@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import classes from './getInput.css';
 import loc from '../icons/loc.png';
 import search from '../icons/search.png';
+import celsius from '../icons/celsius.png';
+import fahrenheit from '../icons/fahrenheit.png';
 class showData extends Component {
 
   state={
@@ -9,14 +11,14 @@ class showData extends Component {
   };
 
 
-
+//<img src={celsius} className={classes.humidity}/> 
 
 
 
   render() {
     return (
       <div >
-         <h2>Weather Information App</h2>
+         <h2>Weather <span className={classes.h2Mid}>Information</span> App</h2>
         <input type="text" onChange={this.props.setCity} className={classes.textBox}></input>
         <input type="text" onChange={this.props.setCountry} className={classes.textBox}></input>
         

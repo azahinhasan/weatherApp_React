@@ -21,7 +21,9 @@ class App extends Component {
     tempType:'°C',
     fiveDaysTemp:[],
     fiveHoursTemp:[],
-    trackLocation:false
+    trackLocation:false,
+    humidity:'',
+    wind:''
   };
 
 
@@ -46,7 +48,9 @@ getInfo=()=>{
       minTemp: response.data.main.temp_min,
       weather: response.data.weather[0].main,
       city: response.data.name,
-      country: response.data.sys.country
+      country: response.data.sys.country,
+      humidity:response.data.main.humidity,
+      wind:response.data.wind.speed
     
     });
 
@@ -160,8 +164,7 @@ trackLocation=()=>{
 
         })} */}
 
-       
-<p>hello</p>
+      
       </div>
       
     );

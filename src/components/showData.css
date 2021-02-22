@@ -35,7 +35,7 @@
 .headerName{
     display: block;
     border: rgb(230, 230, 230) 2px solid;
-    margin: 35px 15px;
+    margin: 55px 15px;
     box-shadow: 2px 2px rgb(185, 180, 180);
     height: 40px ;
     border-radius: 10px;
@@ -68,13 +68,17 @@ th{
 .sunSet{
     height: 60px;
     width: 60px;
-    
-    margin: -15px 10px -20px;
+    margin: -15px 10px -20px 30px;
 }
 
 .sunRise{
-    height: 50px;
-    width: 50px;
-    
-    margin: -15px 10px;
+    height: 60px;
+    width: 60px; 
+    margin: -15px 10px -20px ;
+}
+
+.humidity{
+    height: 38px;
+    width: 38px; 
+    margin: -15px 10px -12px 30px;
 }

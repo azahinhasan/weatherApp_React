@@ -7,6 +7,8 @@ import sunRise from './sunrises.png';
 
 import sunset from '../icons/sunset.png';
 import sunrise from '../icons/sunrise.png';
+import humidity from '../icons/humidity.png';
+import autumn from '../icons/autumn.png';
 // import summer from '../icons/sunset.png';
 // import snowing from '../icons/021-snowing-1.png';
 // import rain from '../icons/021-rain-2.png';
@@ -45,6 +47,12 @@ class showData extends Component {
           {this.props.state.tempType}
           <br/>{this.props.state.weather}
         </div>
+        <br/>
+
+        <HeaderText header="Humidity and Wind"/>
+        <span><img src={humidity} className={classes.humidity}/>  {this.props.state.humidity-3}% </span>
+        <span className={classes.space}></span>
+        <span><img src={autumn} className={classes.humidity}/>  {this.props.state.wind}m/s</span>
 
         <br/>
         <HeaderText header="Sunrise and Sunset"/>
