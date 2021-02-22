@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import classes from './getInput.css';
 import loc from '../icons/loc.png';
 import search from '../icons/search.png';

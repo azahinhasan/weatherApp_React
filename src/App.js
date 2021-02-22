@@ -152,7 +152,7 @@ trackLocation=()=>{
             state={this.state}
           />
         </div>
-        <br/> 
+
         {/* {this.state.fiveDaysTemp.map(p=>{
             console.log(p);
             console.log(p.dt_txt);
