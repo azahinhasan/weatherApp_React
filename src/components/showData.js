@@ -65,32 +65,27 @@ class showData extends Component {
         <HeaderText header="15 Hours Tempature"/>
         <table>
           <tbody>
-          <tr>
-        
-        {
-        this.props.state.fiveHoursTemp.map(p=>{
+            <tr>
+              {this.props.state.fiveHoursTemp.map(p=>{
 
-          return(
+                return(
 
-            <th>
-              <tr>
-                
-                {this.props.state.tempType == "°C"? 
-                (p.main.temp-273.15).toFixed(0)+" °C" :
-                ((p.main.temp-273.15)*9/5+32).toFixed(0)+" °F"}
-              </tr>
-              <tr className={classes.timeTr}>
-                { ("0"+new Date(p.dt_txt).getHours()).slice(-2)}:{("0"+new Date(p.dt_txt).getMinutes()).slice(-2)}
-              </tr>
-            </th>
+                  <th key={p.main.temp}>
+                    <td>  
+                      {this.props.state.tempType == "°C"? 
+                      (p.main.temp-273.15).toFixed(0)+" °C" :
+                      ((p.main.temp-273.15)*9/5+32).toFixed(0)+" °F"}
+                    </td>
+                    <td className={classes.timeTr}>
+                      { ("0"+new Date(p.dt_txt).getHours()).slice(-2)}:{("0"+new Date(p.dt_txt).getMinutes()).slice(-2)}
+                    </td>
+                  </th>
+                )
+              })}
+            </tr>
+          </tbody>
+        </table>
 
-            
-          )
-
-        })}
-</tr>
-</tbody>
-</table>
         </div>
       </div>
       

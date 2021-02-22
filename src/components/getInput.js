@@ -7,7 +7,7 @@ import fahrenheit from '../icons/fahrenheit.png';
 class showData extends Component {
 
   state={
-
+    
   };
 
 
@@ -18,8 +18,14 @@ class showData extends Component {
   render() {
     return (
       <div >
-         <h2>Weather <span className={classes.h2Mid}>Information</span> App</h2>
-        <input type="text" onChange={this.props.setCity} className={classes.textBox}></input>
+        <h2>Weather <span className={classes.h2Mid}>Information</span> App</h2>
+        <input type="text" 
+        onChange={this.props.setCity}
+         className={classes.textBox}
+        //  value={this.props.state.textBoxMag1}
+        //  onClick={this.props.textClick}
+         />
+
         <input type="text" onChange={this.props.setCountry} className={classes.textBox}></input>
         
         <button onClick={this.props.loadInfo} className={classes.search}><img src={search} className={classes.searchAndLocathinIcon}/></button>

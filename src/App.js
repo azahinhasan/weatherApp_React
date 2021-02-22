@@ -16,14 +16,16 @@ class App extends Component {
     weather:'',
     city:'Chittagong',
     country: 'Bangladesh',
-    cityFORSearch:'chittagong',
+    cityFORSearch:"chittagong",
     countryFORSearch: 'bangladesh',
     tempType:'°C',
     fiveDaysTemp:[],
     fiveHoursTemp:[],
     trackLocation:false,
     humidity:'',
-    wind:''
+    wind:'',
+    textBoxMag1:'City Name',
+    textFillVisable:true
   };
 
 
@@ -137,6 +139,10 @@ trackLocation=()=>{
   this.getGeoInfo();
 }
 
+textFillVisable=()=>{
+  this.setState({textBoxMag1 :"dd"});
+}
+
 
   render() {
     return (
@@ -151,9 +157,12 @@ trackLocation=()=>{
             setCity={this.setCity}
             loadInfo={this.getInfo}
             getGeoInfo={this.trackLocation}
+            state={this.state}
           />
           <ShowData
             state={this.state}
+            msg={this.state.textBoxMag1}
+            textClick={this.textFillVisable}
           />
         </div>
 
