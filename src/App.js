@@ -33,7 +33,7 @@ componentDidMount(){
 
 
 getInfo=()=>{
-  axios.get('http://api.openweathermap.org/data/2.5/weather?q='+this.state.cityFORSearch+','+this.state.cityFORSearch+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
+  axios.get('https://api.openweathermap.org/data/2.5/weather?q='+this.state.cityFORSearch+','+this.state.countryFORSearch+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
 
   .then(response =>{
    console.log(response);
@@ -61,7 +61,7 @@ getInfo=()=>{
 
 
 
-  axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+this.state.cityFORSearch+','+this.state.cityFORSearch+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
+  axios.get('https://api.openweathermap.org/data/2.5/forecast?q='+this.state.cityFORSearch+','+this.state.countryFORSearch+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
 .then(response =>{
 
   console.log(response);
@@ -109,7 +109,7 @@ setCity=(event)=>{
 }
 
 setCountry=(event)=>{
-  this.setState({cityFORSearch: event.target.value});
+  this.setState({countryFORSearch: event.target.value});
 }
 
 
@@ -119,7 +119,7 @@ getGeoInfo = () => {
   axios.get('https://extreme-ip-lookup.com/json/').then((response) => {
       //console.log(response);
  if(this.state.trackLocation == true){
-      this.setState({cityFORSearch : response.data.city , cityFORSearch:response.data.country ,trackLocation : false})
+      this.setState({cityFORSearch : response.data.city , countryFORSearch:response.data.country ,trackLocation : false})
       this.getInfo();
  }
   }).catch((error) => {
@@ -138,7 +138,7 @@ trackLocation=()=>{
     return (
       <div className={classes.App}>
 
-{/*        
+       
         <div className={classes.Datas}>
           <GetInput
             convertTOc={this.convertTOc}
@@ -152,7 +152,7 @@ trackLocation=()=>{
             state={this.state}
           />
         </div>
-        <br/> */}
+        <br/> 
         {/* {this.state.fiveDaysTemp.map(p=>{
             console.log(p);
             console.log(p.dt_txt);
@@ -160,8 +160,8 @@ trackLocation=()=>{
 
         })} */}
 
-        <p>Hello World</p>
-
+       
+<p>hello</p>
       </div>
       
     );
