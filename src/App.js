@@ -16,16 +16,17 @@ class App extends Component {
     weather:'',
     city:'Chittagong',
     country: 'Bangladesh',
-    cityFORSearch:"chittagong",
-    countryFORSearch: 'bangladesh',
+    cityFORSearch:"City Name",
+    countryFORSearch: 'Country Name',
     tempType:'°C',
     fiveDaysTemp:[],
     fiveHoursTemp:[],
     trackLocation:false,
     humidity:'',
     wind:'',
-    textBoxMag1:'City Name',
-    textFillVisable:true
+    textBoxMag:'City Name',
+    textFillVisable:true,
+    error:false
   };
 
 
@@ -52,13 +53,14 @@ getInfo=()=>{
       city: response.data.name,
       country: response.data.sys.country,
       humidity:response.data.main.humidity,
-      wind:response.data.wind.speed
+      wind:response.data.wind.speed,
+      error:false
     
     });
 
   })
   .catch(error => {
-      console.log(error);  //for hendeling error or failed 
+      console.log("error");  //for hendeling error or failed 
       this.setState({error: true});
   });
 
@@ -111,11 +113,15 @@ convertTOf=()=>{
 }
 
 setCity=(event)=>{
-  this.setState({cityFORSearch: event.target.value});
+  this.setState({cityFORSearch:  event.target.value});
+  console.log(this.state.textBoxMag);
+  //this.setState({cityFORSearch: this.state.textBoxMag});
 }
 
 setCountry=(event)=>{
+  event.preventDefault();
   this.setState({countryFORSearch: event.target.value});
+  console.log(this.state.countryFORSearch);
 }
 
 
@@ -139,18 +145,29 @@ trackLocation=()=>{
   this.getGeoInfo();
 }
 
-textFillVisable=()=>{
-  this.setState({textBoxMag1 :"dd"});
+cityTextBoxHendler=()=>{
+  if(this.state.cityFORSearch == 'City Name'){
+    this.setState({cityFORSearch : ""});
+    console.log("fick");
+  }
+  //this.setCity();
+}
+
+countryTextBoxHandler=()=>{
+  if(this.state.countryFORSearch == 'Country Name'){
+    this.setState({countryFORSearch : ""});
+    console.log("fick");
+  }
+  //this.setCity();
 }
 
 
   render() {
     return (
       <div className={classes.App}>
+                <div className={classes.Datas}>
 
-       
-        <div className={classes.Datas}>
-          <GetInput
+<GetInput
             convertTOc={this.convertTOc}
             convertTOf={this.convertTOf}
             setCountry={this.setCountry}
@@ -158,14 +175,20 @@ textFillVisable=()=>{
             loadInfo={this.getInfo}
             getGeoInfo={this.trackLocation}
             state={this.state}
+            cityTextBox={this.cityTextBoxHendler}
+            countryTextBox={this.countryTextBoxHandler}
           />
+
+       { !this.state.error ?
+
           <ShowData
             state={this.state}
             msg={this.state.textBoxMag1}
-            textClick={this.textFillVisable}
-          />
-        </div>
 
+          />
+       : null
+  }
+ </div> 
         {/* {this.state.fiveDaysTemp.map(p=>{
             console.log(p);
             console.log(p.dt_txt);
