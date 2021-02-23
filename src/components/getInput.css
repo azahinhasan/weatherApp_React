@@ -1,6 +1,14 @@
 h2 {
   text-decoration: underline rgb(37, 74, 155);
   color: rgb(22, 88, 90);
+  /* display: block;
+  width: 75%;
+  height: 50px;
+  margin: 5px 00px 0 50px;
+  border: rgb(230, 230, 230) 2px solid;
+  box-shadow: 0px 0px 5px 0px rgb(185, 180, 180);
+  height: 40px ;
+  border-radius: 10px; */
 }
 .h2Mid{
   color: rgb(124, 114, 25);
@@ -36,13 +44,20 @@ h2 {
 
   
   .button:hover {
-    background-color: rgb(207, 204, 204);;
+    background-color: rgb(207, 204, 204);
+  }
+
+
+  button:disabled,
+  button[disabled]{
+    background-color: rgb(207, 204, 204);
   }
 
   .buttonClickHere{
     left: 30%;
   }
   
+
   .search{
     background-color: black;
     color: white;
@@ -102,3 +117,4 @@ h2 {
   width: 38px; 
   margin: -15px 80px -12px 0px;
 }
+

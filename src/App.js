@@ -14,8 +14,8 @@ class App extends Component {
     sunSet:0,
     humidity:0,
     weather:'',
-    city:'Chittagong',
-    country: 'Bangladesh',
+    city:'',
+    country: '',
     cityFORSearch:"City Name",
     countryFORSearch: 'Country Name',
     tempType:'°C',
@@ -39,7 +39,7 @@ componentDidMount(){
 
 
 getInfo=()=>{
-  this.setState({notFoundMsg : 'Data Not Found!'});
+  this.setState({notFoundMsg : 'Data Not Found! Please Enter currect name or Nearest biggest city.'});
 
   axios.get('https://api.openweathermap.org/data/2.5/weather?q='+this.state.cityFORSearch+','+this.state.countryFORSearch+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
 
@@ -57,7 +57,9 @@ getInfo=()=>{
       country: response.data.sys.country,
       humidity:response.data.main.humidity,
       wind:response.data.wind.speed,
-      error:true
+      error:true,
+      FbuttonClicked:false,
+      CbuttonClicked:true
     
     });
 
@@ -89,7 +91,7 @@ getInfo=()=>{
   })
   .catch(error => {
       console.log(error);  //for hendeling error or failed 
-      this.setState({error: true});
+      this.setState({error: false});
   });
 
 
@@ -103,14 +105,25 @@ getInfo=()=>{
 convertTOc=()=>{
 
   if(this.state.tempType!='°C'){
-    this.setState({tempature : String((this.state.temp-273.15).toFixed(0)) , tempType:'°C'})
+    this.setState({
+      tempature : String((this.state.temp-273.15).toFixed(0)) , 
+      tempType:'°C',
+      FbuttonClicked:false,
+      CbuttonClicked:true
+    
+    })
   }
 
 }
 
 convertTOf=()=>{
   if(this.state.tempType!='°F'){
-    this.setState({tempature : String(((this.state.temp-273.15)*9/5+32).toFixed(0))  , tempType:'°F'})
+    this.setState({
+      tempature : String(((this.state.temp-273.15)*9/5+32).toFixed(0)),
+      tempType:'°F',
+      FbuttonClicked:true,
+      CbuttonClicked:false
+    })
   }
   
 }
@@ -193,10 +206,8 @@ countryTextBoxHandler=()=>{
        }
  </div> 
 
-
-<p>CHnge color of C and F button when selected</p>   
- 
-      </div>
+  <br/>
+</div>
       
     );
   }

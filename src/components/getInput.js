@@ -32,12 +32,15 @@ class showData extends Component {
         value={this.props.state.countryFORSearch}
         onClick={this.props.countryTextBox}/>
         
-        <button onClick={this.props.loadInfo} className={classes.search}><img src={search} className={classes.searchAndLocathinIcon}/></button>
+        <button onClick={this.props.loadInfo} className={classes.search}>
+        <img src={search} className={classes.searchAndLocathinIcon}/>
+        
+        </button>
         <button onClick={this.props.getGeoInfo} className={classes.search}><img src={loc} className={classes.searchAndLocathinIcon}/></button>
         <br/>
-        <button onClick={this.props.convertTOc} className={classes.button}>C</button>
+        <button onClick={this.props.convertTOc} className={classes.button} disabled={Boolean(this.props.state.CbuttonClicked)}>C</button>
         <span className={classes.divider}></span>
-        <button onClick={this.props.convertTOf} className={classes.button}>F</button>
+        <button onClick={this.props.convertTOf} className={classes.button} disabled={Boolean(this.props.state.FbuttonClicked)}>F</button>
       </div>
       
     );
