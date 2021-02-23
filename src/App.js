@@ -26,18 +26,21 @@ class App extends Component {
     wind:'',
     textBoxMag:'City Name',
     textFillVisable:true,
-    error:false
+    error:false,
+    notFoundMsg:''
   };
 
 
 componentDidMount(){
 
-  this.getInfo();
-  this.getGeoInfo();
+  //this.getInfo();
+  //this.getGeoInfo();
 }
 
 
 getInfo=()=>{
+  this.setState({notFoundMsg : 'Data Not Found!'});
+
   axios.get('https://api.openweathermap.org/data/2.5/weather?q='+this.state.cityFORSearch+','+this.state.countryFORSearch+'&appid=8eef13a1a5202c6c49a16bd128b1220c')  
 
   .then(response =>{
@@ -54,14 +57,14 @@ getInfo=()=>{
       country: response.data.sys.country,
       humidity:response.data.main.humidity,
       wind:response.data.wind.speed,
-      error:false
+      error:true
     
     });
 
   })
   .catch(error => {
       console.log("error");  //for hendeling error or failed 
-      this.setState({error: true});
+      this.setState({error: false});
   });
 
 
@@ -179,24 +182,20 @@ countryTextBoxHandler=()=>{
             countryTextBox={this.countryTextBoxHandler}
           />
 
-       { !this.state.error ?
+       { this.state.error ?
 
           <ShowData
             state={this.state}
             msg={this.state.textBoxMag1}
 
           />
-       : null
-  }
+       : <p>{this.state.notFoundMsg}</p>
+       }
  </div> 
-        {/* {this.state.fiveDaysTemp.map(p=>{
-            console.log(p);
-            console.log(p.dt_txt);
-            console.log(p.main.temp);
 
-        })} */}
 
-      
+<p>CHnge color of C and F button when selected</p>   
+ 
       </div>
       
     );
