@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { useEffect, Component } from 'react';
 import axios from 'axios';
 import ShowData from './components/showData';
 import GetInput from './components/getInput';
 import classes from './App.css';
+import { confirmAlert } from 'react-confirm-alert';
 class App extends Component {
 
   state={
@@ -27,7 +28,8 @@ class App extends Component {
     textBoxMag:'City Name',
     textFillVisable:true,
     error:false,
-    notFoundMsg:''
+    notFoundMsg:'',
+    giveAcessToTrackLocation:false
   };
 
 
@@ -59,7 +61,7 @@ getInfo=()=>{
       wind:response.data.wind.speed,
       error:true,
       FbuttonClicked:false,
-      CbuttonClicked:true
+      CbuttonClicked:true,
     
     });
 
@@ -156,10 +158,32 @@ getGeoInfo = () => {
 
 };
 
+
+
 trackLocation=()=>{
-  this.setState({trackLocation : true});
-  this.getGeoInfo();
+  
+  if(this.state.giveAcessToTrackLocation == false){
+    var confirmAlert =  window.confirm("It will track your Loaction!");
+  }
+
+
+  if(this.state.giveAcessToTrackLocation ||  confirmAlert){
+    this.setState({trackLocation : true,giveAcessToTrackLocation : true});
+    this.getGeoInfo();
+  }
+
 }
+
+
+
+
+
+
+
+
+
+
+
 
 cityTextBoxHendler=()=>{
   if(this.state.cityFORSearch == 'City Name'){
@@ -172,7 +196,6 @@ cityTextBoxHendler=()=>{
 countryTextBoxHandler=()=>{
   if(this.state.countryFORSearch == 'Country Name'){
     this.setState({countryFORSearch : ""});
-    console.log("fick");
   }
   //this.setCity();
 }

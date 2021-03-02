@@ -34,8 +34,8 @@ class showData extends Component {
         
         <button onClick={this.props.loadInfo} className={classes.search}>
         <img src={search} className={classes.searchAndLocathinIcon}/>
-        
         </button>
+        
         <button onClick={this.props.getGeoInfo} className={classes.search}><img src={loc} className={classes.searchAndLocathinIcon}/></button>
         <br/>
         <button onClick={this.props.convertTOc} className={classes.button} disabled={Boolean(this.props.state.CbuttonClicked)}>C</button>
