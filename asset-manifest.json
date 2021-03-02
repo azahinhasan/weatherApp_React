@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/weatherApp_React/static/css/main.b4c09ab1.chunk.css",
-    "main.js": "/weatherApp_React/static/js/main.6dcfc624.chunk.js",
-    "main.js.map": "/weatherApp_React/static/js/main.6dcfc624.chunk.js.map",
-    "runtime-main.js": "/weatherApp_React/static/js/runtime-main.5d374021.js",
-    "runtime-main.js.map": "/weatherApp_React/static/js/runtime-main.5d374021.js.map",
-    "static/js/2.115ea218.chunk.js": "/weatherApp_React/static/js/2.115ea218.chunk.js",
-    "static/js/2.115ea218.chunk.js.map": "/weatherApp_React/static/js/2.115ea218.chunk.js.map",
-    "static/js/3.af36a7db.chunk.js": "/weatherApp_React/static/js/3.af36a7db.chunk.js",
-    "static/js/3.af36a7db.chunk.js.map": "/weatherApp_React/static/js/3.af36a7db.chunk.js.map",
+    "main.js": "/weatherApp_React/static/js/main.2479ddab.chunk.js",
+    "main.js.map": "/weatherApp_React/static/js/main.2479ddab.chunk.js.map",
+    "runtime-main.js": "/weatherApp_React/static/js/runtime-main.46582b2c.js",
+    "runtime-main.js.map": "/weatherApp_React/static/js/runtime-main.46582b2c.js.map",
+    "static/js/2.2556d014.chunk.js": "/weatherApp_React/static/js/2.2556d014.chunk.js",
+    "static/js/2.2556d014.chunk.js.map": "/weatherApp_React/static/js/2.2556d014.chunk.js.map",
+    "static/js/3.9657612e.chunk.js": "/weatherApp_React/static/js/3.9657612e.chunk.js",
+    "static/js/3.9657612e.chunk.js.map": "/weatherApp_React/static/js/3.9657612e.chunk.js.map",
     "index.html": "/weatherApp_React/index.html",
     "static/css/main.b4c09ab1.chunk.css.map": "/weatherApp_React/static/css/main.b4c09ab1.chunk.css.map",
-    "static/js/2.115ea218.chunk.js.LICENSE.txt": "/weatherApp_React/static/js/2.115ea218.chunk.js.LICENSE.txt",
+    "static/js/2.2556d014.chunk.js.LICENSE.txt": "/weatherApp_React/static/js/2.2556d014.chunk.js.LICENSE.txt",
     "static/media/autumn.cc11e104.png": "/weatherApp_React/static/media/autumn.cc11e104.png",
     "static/media/celsius.85c57eb8.png": "/weatherApp_React/static/media/celsius.85c57eb8.png",
     "static/media/fahrenheit.1d7e9635.png": "/weatherApp_React/static/media/fahrenheit.1d7e9635.png",
@@ -22,9 +22,9 @@
     "static/media/sunset.17502fa0.png": "/weatherApp_React/static/media/sunset.17502fa0.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.5d374021.js",
-    "static/js/2.115ea218.chunk.js",
+    "static/js/runtime-main.46582b2c.js",
+    "static/js/2.2556d014.chunk.js",
     "static/css/main.b4c09ab1.chunk.css",
-    "static/js/main.6dcfc624.chunk.js"
+    "static/js/main.2479ddab.chunk.js"
   ]
 }
