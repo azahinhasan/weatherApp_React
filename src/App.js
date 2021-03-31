@@ -83,7 +83,7 @@ getInfo=()=>{
 
   const tempFive = response.data.list.slice(2,7);
 
-  // console.log(tempFive);
+  //console.log(tempFive);
   
 
   this.setState({fiveHoursTemp : tempFive});
@@ -147,7 +147,7 @@ setCountry=(event)=>{
 
 getGeoInfo = () => {
   axios.get('https://extreme-ip-lookup.com/json/').then((response) => {
-      //console.log(response);
+      console.log(response);
  if(this.state.trackLocation == true){
       this.setState({cityFORSearch : response.data.city , countryFORSearch:response.data.country ,trackLocation : false})
       this.getInfo();
@@ -156,14 +156,36 @@ getGeoInfo = () => {
       console.log(error);
   });
 
+
+  // if (navigator.geolocation) {
+  //   navigator.geolocation.watchPosition(function(position) {
+  //     console.log("Latitude is :", position.coords);
+  //     console.log("Longitude is :", position.coords.longitude);
+  //   });
+  // }
+
+
+
+ 
 };
 
+// yooMama = () => {
+//   console.log("COvid-19");
+//   axios.get('https://disease.sh/v3/covid-19/countries?yesterday=true&twoDaysAgo=true&sort=cases&allowNull=true').then((response) => {
+//       console.log(response);
+//       console.log("COvid-19");
+ 
+//   }).catch((error) => {
+//       console.log(error);
+//   });
+
+// };
 
 
 trackLocation=()=>{
   
   if(this.state.giveAcessToTrackLocation == false){
-    var confirmAlert =  window.confirm("It will track your Loaction!");
+    var confirmAlert =  window.confirm("It will Track your Loaction!");
   }
 
 
@@ -178,17 +200,10 @@ trackLocation=()=>{
 
 
 
-
-
-
-
-
-
-
 cityTextBoxHendler=()=>{
   if(this.state.cityFORSearch == 'City Name'){
     this.setState({cityFORSearch : ""});
-    console.log("fick");
+    //console.log("fick");
   }
   //this.setCity();
 }
